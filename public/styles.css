@@ -1,59 +1,122 @@
 * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
     font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #1a1a1a, #333333);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    margin: 3vw 0;
 }
 
 .articles-container {
     display: flex;
-    flex-flow: row wrap;
-    gap: 2vw;
+    flex-wrap: wrap;
     justify-content: center;
-}
-
-.article-container img {
-    max-width: 30rem;
-    max-height: 30rem;
-    border-radius: 2vw 2vw 0 0;
+    gap: 2vw;
 }
 
 .article-container {
     width: 30rem;
     min-height: 40rem;
     text-align: center;
-    background: #494949;
-    border-radius: 2vw;
+    background: #2d2d2d;
     color: #ffffff;
-    border: 1px solid white;
+    border: 1px solid #494949;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.article-container img {
+    width: 100%;
+    max-height: 20rem;
+    object-fit: cover;
 }
 
 .article-container button {
-    width: 20rem;
-    height: 2rem;
-
-    font-size: 1vw;
-}
-
-body {
-    background-color: #171717;
-}
-
-header {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: #3498db;
     color: white;
-    text-align: center;
-    margin-top: 3vw;
-    margin-bottom: 3vw;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.filter-container {
-    display: flex;
-    justify-content: center;
-
-    color: white;
-    margin-bottom: 2vw;
+.article-container button:hover {
+    background-color: #2980b9;
 }
 
+.filter-container,
 .country-container {
     display: flex;
     justify-content: center;
     margin-bottom: 2vw;
+}
+
+.filter-container,
+.country-container,
+.filter-container select,
+.country-container select {
     color: white;
+    background-color: #494949;
+    border: 1px solid white;
+    border-radius: 0.5vw;
+    padding: 0.5rem;
+}
+
+.filter-container select,
+.country-container select {
+    margin: 0 1rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button-primary {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.button-secondary {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #3498db;
 }
