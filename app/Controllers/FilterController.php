@@ -28,7 +28,6 @@ class FilterController
         );
 
         return new Response('articles/index', [
-            'header' => 'Filtered Articles',
             'articles' => $articles->get(),
         ]);
     }

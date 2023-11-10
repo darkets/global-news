@@ -14,10 +14,10 @@ class ArticleController
     {
         $this->api = new Api();
     }
+
     public function index(): Response
     {
         return new Response('articles/index', [
-            'header' => 'TOP NEWS!!!',
             'articles' => $this->api->fetchTopHeadlines()->get()
         ]);
     }

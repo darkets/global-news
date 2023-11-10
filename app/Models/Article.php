@@ -17,10 +17,10 @@ class Article
     private ?Carbon $publishedAt;
 
     public function __construct(
-        string $title,
+        string  $title,
         ?string $description,
         ?string $author,
-        string $url,
+        string  $url,
         ?string $urlToImage,
         ?Carbon $publishedAt
     )
