@@ -17,10 +17,10 @@ class Article
     private ?Carbon $publishedAt;
 
     public function __construct(
-        ?string $title,
+        string $title,
         ?string $description,
         ?string $author,
-        ?string $url,
+        string $url,
         ?string $urlToImage,
         ?Carbon $publishedAt
     )
@@ -45,7 +45,7 @@ class Article
 
     public function getAuthor(): string
     {
-        return $this->author;
+        return $this->author ?? 'Unknown';
     }
 
     public function getUrl(): string

@@ -17,12 +17,19 @@
 
 .article-container {
     width: 30rem;
-    height: 40rem;
+    min-height: 40rem;
     text-align: center;
     background: #494949;
     border-radius: 2vw;
     color: #ffffff;
     border: 1px solid white;
+}
+
+.article-container button {
+    width: 20rem;
+    height: 2rem;
+
+    font-size: 1vw;
 }
 
 body {
