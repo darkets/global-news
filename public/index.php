@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-
-use App\Api;
 use App\Response;
 use App\Router\Router;
 use Dotenv\Dotenv;

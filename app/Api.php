@@ -68,14 +68,16 @@ class Api
         return $articleCollection;
     }
 
-    public function fetchFilteredArticles(
+    public function fetchFilteredArticles
+    (
         string $headline,
         string $fromDate,
         string $toDate
     ): ?ArticleCollection
     {
         try {
-            $articles = $this->api->getEverything(
+            $articles = $this->api->getEverything
+            (
                 $headline,
                 null,
                 null,
@@ -87,9 +89,6 @@ class Api
             echo $e->getMessage();
             return null;
         }
-
-//        echo '<pre>';
-//        var_dump($articles);
 
         $articleCollection = new ArticleCollection();
 
