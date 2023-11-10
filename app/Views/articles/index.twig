@@ -1,0 +1,19 @@
+{% include 'Partials/head.twig' %}
+{% include 'Partials/header.twig' %}
+{% include 'Partials/filter-bar.twig' %}
+
+<div class="articles-container">
+    {% for article in articles %}
+        <div class="article-container">
+            <img src="{{ article.urlToImage }}">
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.description }}</p>
+
+            <a href="{{ article.url }}" target="_blank">
+                <button>Read Mode</button>
+            </a>
+
+            <p>Article Published: {{ article.publishedAt }}</p>
+        </div>
+    {% endfor %}
+</div>

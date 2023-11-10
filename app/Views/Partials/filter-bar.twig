@@ -1,0 +1,27 @@
+<div class="country-container">
+    <form action="/country" method="GET">
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option value="us">USA</option>
+            <option value="uk">UK</option>
+            <option value="lv">LV</option>
+        </select>
+
+        <input type="submit" value="Filter">
+    </form>
+</div>
+
+<div class="filter-container">
+    <form action="/filter" method="GET">
+        <label for="headline">Headline:</label>
+        <input type="text" id="headline" name="headline" placeholder="Enter headline">
+
+        <label for="from-date">From:</label>
+        <input type="date" id="from-date" name="from_date">
+
+        <label for="to-date">To:</label>
+        <input type="date" id="to-date" name="to_date">
+
+        <input type="submit" value="Filter">
+    </form>
+</div>
