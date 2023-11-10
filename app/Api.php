@@ -13,9 +13,27 @@ class Api
 {
     private NewsApi $api;
 
-    public function __construct()
+    public function __construct(NewsApi $api)
     {
-        $this->api = new NewsApi($_ENV['API_KEY']);
+        $this->api = $api;
+        //$this->api = new NewsApi($_ENV['API_KEY']);
+    }
+    private function fetchArticles(array $articles): ArticleCollection
+    {
+        $articleCollection = new ArticleCollection();
+
+        foreach ($articles as $article) {
+            $articleCollection->add(new Article(
+                $article['title'],
+                $article['description'],
+                $article['author'],
+                $article['url'],
+                $article['urlToImage'],
+                Carbon::parse($article['publishedAt'])
+            ));
+        }
+
+        return $articleCollection;
     }
 
     public function fetchTopHeadlines(): ?ArticleCollection
@@ -26,21 +44,7 @@ class Api
             echo $e->errorMessage();
             return null;
         }
-
-        $articleCollection = new ArticleCollection();
-
-        foreach ($articles->articles as $article) {
-            $articleCollection->add(new Article(
-                $article->title,
-                $article->description,
-                $article->author,
-                $article->url,
-                $article->urlToImage,
-                Carbon::parse($article->publishedAt)
-            ));
-        }
-
-        return $articleCollection;
+        return $this->fetchArticles($articles);
     }
 
     public function fetchByCountry(string $country): ?ArticleCollection
@@ -51,21 +55,7 @@ class Api
             echo $e->errorMessage();
             return null;
         }
-
-        $articleCollection = new ArticleCollection();
-
-        foreach($articles->articles as $article) {
-            $articleCollection->add(new Article(
-                $article->title,
-                $article->description,
-                $article->author,
-                $article->url,
-                $article->urlToImage,
-                Carbon::parse($article->publishedAt)
-            ));
-        }
-
-        return $articleCollection;
+        return $this->fetchArticles($articles);
     }
 
     public function fetchFilteredArticles(
@@ -87,23 +77,6 @@ class Api
             echo $e->getMessage();
             return null;
         }
-
-//        echo '<pre>';
-//        var_dump($articles);
-
-        $articleCollection = new ArticleCollection();
-
-        foreach($articles->articles as $article) {
-            $articleCollection->add(new Article(
-                $article->title,
-                $article->description,
-                $article->author,
-                $article->url,
-                $article->urlToImage,
-                Carbon::parse($article->publishedAt)
-            ));
-        }
-
-        return $articleCollection;
+        return $this->fetchArticles($articles);
     }
 }
